@@ -1,0 +1,24 @@
+{
+    "main":{
+        "modeName": "Fighter",
+        "description": "Fighter by nebula#11571.\nFight to win."
+    },
+    "gamemodes": {
+        "ffa": {}
+    },
+    "heroes": {
+        "ffa": {
+            "echo": {
+                "enablePrimaryFire": false
+            },
+            "doomfist": {
+                "enableAbility2": false,
+                "enablePrimaryFire": false
+            },
+            "lucio": {
+                "enablePrimaryFire": false
+            },
+            "reinhardt": {}
+        }
+    }
+}
