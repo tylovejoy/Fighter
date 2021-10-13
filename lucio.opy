@@ -9,10 +9,8 @@
 #!define DOT_DAMAGE 20
 #!define AMP_DAMAGE 50
 
-
 rule "--- [Lucio] ---":
     @Delimiter
-
 
 rule "[Lucio] Damage Over Time Aura Ability":
     @Event eachPlayer

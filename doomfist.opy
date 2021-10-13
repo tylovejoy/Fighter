@@ -8,10 +8,8 @@
 
 playervar grappleTarget
 
-
 rule "--- [Doomfist] ---":
     @Delimiter
-
 
 rule "[Doomfist] Grapple/RKO Ability":
     @Event eachPlayer
@@ -29,5 +27,6 @@ rule "[Doomfist] Grapple/RKO Ability":
     playEffect(getAllPlayers(), DynamicEffect.DOOMFIST_METEOR_STRIKE_IMPACT_SOUND, Color.WHITE, eventPlayer.getPosition(), 10)
     playEffect(getAllPlayers(), DynamicEffect.DOOMFIST_METEOR_STRIKE_IMPACT, Color.WHITE, eventPlayer.getPosition(), 10)
     damage(eventPlayer.grappleTarget, eventPlayer, GRAPPLE_DAMAGE)
+    # Reset grapple target
     eventPlayer.grappleTarget = null
 
