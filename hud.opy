@@ -1,5 +1,9 @@
 #!mainFile "fighter.opy"
 
+rule "--- HUD ---":
+    @Delimiter
+    @Disabled
+
 rule "Abilities HUD":
     @Event global
 

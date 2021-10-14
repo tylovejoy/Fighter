@@ -1,18 +1,13 @@
 #!mainFile "fighter.opy"
 
-#!extension beamEffects
-#!extension beamSounds
-#!extension explosionSounds
-#!extension energyExplosionEffects
-#!extension kineticExplosionEffects
-
 #!define DOT_DAMAGE 20
 #!define AMP_DAMAGE 50
 
 rule "--- [Lucio] ---":
     @Delimiter
+    @Disabled
 
-rule "[Lucio] Damage Over Time Aura Ability":
+rule "Damage Over Time Aura Ability":
     @Event eachPlayer
     @Hero lucio
     @Condition getPlayersInRadius(eventPlayer, 12, Team.ALL, LosCheck.SURFACES_AND_ENEMY_BARRIERS) > 0
@@ -21,7 +16,7 @@ rule "[Lucio] Damage Over Time Aura Ability":
         wait(1)
     while RULE_CONDITION    
     
-rule "[Lucio] Amp DoT Ability":
+rule "Amp DoT Ability":
     @Event eachPlayer
     @Hero lucio
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)

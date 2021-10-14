@@ -7,6 +7,14 @@
         "ffa": {}
     },
     "heroes": {
+        "allTeams": {
+            "enabledHeroes": [
+                "doomfist",
+                "echo",
+                "lucio",
+                "reinhardt"
+            ]
+        },
         "ffa": {
             "echo": {
                 "enablePrimaryFire": false
@@ -20,5 +28,8 @@
             },
             "reinhardt": {}
         }
+    },
+    "lobby": {
+        "ffaSlots": 8
     }
 }
