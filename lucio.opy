@@ -20,6 +20,5 @@ rule "Amp DoT Ability":
     @Event eachPlayer
     @Hero lucio
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
-    smallMessage(eventPlayer, "Amp")
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
     damage([player for player in getPlayersInRadius(eventPlayer.getPosition(), 12, Team.ALL, LosCheck.SURFACES_AND_ENEMY_BARRIERS) if player != eventPlayer], eventPlayer, AMP_DAMAGE)
-    wait(15)
