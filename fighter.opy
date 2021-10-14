@@ -2,6 +2,7 @@
 #!include "echo.opy"
 #!include "lucio.opy"
 #!include "hud.opy"
+#!include "pharah.opy"
 
 #!extension beamEffects
 #!extension explosionSounds
