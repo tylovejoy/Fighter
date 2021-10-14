@@ -19,7 +19,7 @@ rule "Grapple/RKO Ability":
         eventPlayer.grappleTarget = eventPlayer.getPlayerClosestToReticle(Team.ALL) 
     else:
         return
-        
+
     # Grapple closest enemy if near crosshair
     eventPlayer.grappleTarget.attachTo(eventPlayer, vectorTowards(eventPlayer, eventPlayer.grappleTarget))
     
@@ -28,7 +28,7 @@ rule "Grapple/RKO Ability":
 
     # Ground pound
     while eventPlayer.isInAir():
-        eventPlayer.applyImpulse(vect(0, -1, 0), 1000, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
+        eventPlayer.applyImpulse(Vector.DOWN, 1000, Relativity.TO_PLAYER, Impulse.CANCEL_CONTRARY_MOTION)
         wait()
     
     playEffect(getAllPlayers(), DynamicEffect.DOOMFIST_METEOR_STRIKE_IMPACT_SOUND, Color.WHITE, eventPlayer.getPosition(), 100)
