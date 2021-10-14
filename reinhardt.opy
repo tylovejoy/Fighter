@@ -9,3 +9,19 @@ rule "Spinning hammer":
         eventPlayer.startFacing(directionTowards(eventPlayer.getPosition(), eventPlayer.getFacingDirection()), 100, Relativity.TO_PLAYER, FacingReeval.DIRECTION_AND_TURN_RATE)
         eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
     while RULE_CONDITION
+
+rule "Burst Firestrike":
+    @Event eachPlayer
+    @Hero reinhardt
+    @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
+    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
+
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+    eventPlayer.cancelPrimaryAction()
+    wait()
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+    eventPlayer.cancelPrimaryAction()
+    wait()
+    eventPlayer.forceButtonPress(Button.ABILITY_2)
+    eventPlayer.cancelPrimaryAction()
+    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 6)
