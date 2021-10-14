@@ -4,7 +4,14 @@
         "description": "Fighter by nebula#11571.\nFight to win."
     },
     "gamemodes": {
-        "ffa": {}
+        "ffa": {
+            "gamemodeStartTrigger": "immediately"
+        },
+        "general": {
+            "enableEndless": true,
+            "respawnTime%": 2,
+            "enableEnemyHealthBars": true
+        }
     },
     "heroes": {
         "allTeams": {
@@ -31,6 +38,6 @@
         }
     },
     "lobby": {
-        "ffaSlots": 8
+        "ffaSlots": 8,   
     }
 }
