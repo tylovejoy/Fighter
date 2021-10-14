@@ -3,6 +3,7 @@
 #!include "lucio.opy"
 #!include "hud.opy"
 #!include "pharah.opy"
+#!include "reinhardt.opy"
 
 #!extension beamEffects
 #!extension explosionSounds

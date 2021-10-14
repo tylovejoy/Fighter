@@ -1,0 +1,2 @@
+#!mainFile "fighter.opy"
+
