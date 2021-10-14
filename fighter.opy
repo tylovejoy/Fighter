@@ -18,7 +18,14 @@ rule "--- Gamemode ---":
     @Disabled
 
 rule "Match Time":
-    
+    wait(1)
+    setMatchTime(9999)
+    wait(1)
+    pauseMatchTime()
+    wait(1)
+    setMatchTime(9999)
+    wait(1)
+    pauseMatchTime()
 
 rule "Spawn Dummy Bots TESTING":
     @Event eachPlayer
