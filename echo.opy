@@ -1,7 +1,7 @@
 #!mainFile "fighter.opy"
 
 #!define BEAM_DAMAGE 100
-#!define beamDamage() damage([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) > 0 and dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) <= 20 and magnitude(crossProduct( vectorTowards( eventPlayer, player), eventPlayer.getFacingDirection())) <= 1 and isInLoS(eventPlayer, player, BarrierLos.PASS_THROUGH_BARRIERS)], eventPlayer, 5)
+#!define beamDamage() damage([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) > 0 and dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) <= 20 and magnitude(crossProduct( vectorTowards( eventPlayer, player), eventPlayer.getFacingDirection())) <= 1 and isInLoS(eventPlayer, player, BarrierLos.PASS_THROUGH_BARRIERS)], eventPlayer, 150)
 
 
 playervar abilityFX
@@ -42,6 +42,7 @@ rule "Large Beam Ability":
     
     destroyEffect(eventPlayer.abilityFX[0])
     destroyEffect(eventPlayer.abilityFX[1])
+    wait(5)
 
         
 
