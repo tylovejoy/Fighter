@@ -13,6 +13,7 @@ rule "Grapple/RKO Ability":
     @Hero doomfist
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
     @Condition eventPlayer.isInAir()
+    @Condition distance(eventPlayer.getPosition(), nearestWalkablePosition(eventPlayer.getPosition())) > 3
 
     # Check for grapple target on crosshair is in range
     if eventPlayer.getPlayerClosestToReticle(Team.ALL) in getPlayersInRadius(eventPlayer.getPosition(), 3, Team.ALL, LosCheck.SURFACES_AND_ENEMY_BARRIERS).exclude(eventPlayer):

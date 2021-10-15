@@ -5,12 +5,12 @@ rule "Spinning hammer":
     @Hero reinhardt
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1)
 
-    #eventPlayer.startCamera(eventPlayer.getPosition() + vect(5,5,5), eventPlayer.getPosition(), 100)
+    eventPlayer.startCamera(raycast(eventPlayer.getPosition(), eventPlayer.getPosition() + (Vector.UP * 5), null, null, null).getNormal(), eventPlayer.getPosition(), 100)
     while eventPlayer.isHoldingButton(Button.ABILITY_1):  
         eventPlayer.startFacing(updateEveryTick(directionTowards(eventPlayer.getPosition(), eventPlayer.getFacingDirection())), 100000, Relativity.TO_PLAYER, FacingReeval.DIRECTION_AND_TURN_RATE)
         wait()
     eventPlayer.stopFacing()
-    #eventPlayer.stopCamera()
+    eventPlayer.stopCamera()
 
 rule "Burst Firestrike":
     @Event eachPlayer
@@ -35,4 +35,7 @@ rule "Burst Firestrike":
         wait(6)
 
 rule "Burning Firestrike":
-    @Event playerTookDamage
+    @Event playerDealtDamage
+    @Hero reinhardt
+    @Condition eventAbility == Button.ABILITY_2
+    victim.setStatusEffect(attacker, Status.BURNING, 4)

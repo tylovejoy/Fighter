@@ -1,6 +1,6 @@
 #!mainFile "fighter.opy"
 
-#!define IMPULSE_AMOUNT 3
+#!define IMPULSE_AMOUNT 0.5
 
 rule "Ultimate Ability - Shortened":
     @Event eachPlayer
