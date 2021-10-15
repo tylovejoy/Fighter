@@ -20,10 +20,8 @@ rule "--- Gamemode ---":
 
 rule "Match Time":
     wait(1)
-    setMatchTime(9999)
-    wait(1)
-    pauseMatchTime()
-    wait(1)
+    setMatchTime(1)
+    wait(5)
     setMatchTime(9999)
     wait(1)
     pauseMatchTime()

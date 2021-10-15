@@ -9,7 +9,7 @@
         },
         "general": {
             "enableEndless": true,
-            "respawnTime%": 2,
+            "respawnTime%": 50,
             "enableEnemyHealthBars": true
         }
     },
@@ -36,7 +36,8 @@
             },
             "reinhardt": {
                 "enableAbility1": false
-            }
+            },
+
         }
     },
     "lobby": {

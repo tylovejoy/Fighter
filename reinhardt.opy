@@ -5,23 +5,26 @@ rule "Spinning hammer":
     @Hero reinhardt
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1)
 
-    do:
-        eventPlayer.startFacing(directionTowards(eventPlayer.getPosition(), eventPlayer.getFacingDirection()), 100, Relativity.TO_PLAYER, FacingReeval.DIRECTION_AND_TURN_RATE)
-        eventPlayer.startForcingButton(Button.PRIMARY_FIRE)
-    while RULE_CONDITION
+    while eventPlayer.isHoldingButton(Button.ABILITY_1):  
+        eventPlayer.startFacing(updateEveryTick(directionTowards(eventPlayer.getPosition(), eventPlayer.getFacingDirection())), 10000, Relativity.TO_PLAYER, FacingReeval.DIRECTION_AND_TURN_RATE)
+        wait()
+    eventPlayer.stopFacing()
 
 rule "Burst Firestrike":
     @Event eachPlayer
     @Hero reinhardt
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_2)
-    @Condition eventPlayer.getAbilityCooldown(Button.ABILITY_2) == 0
-
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
-    eventPlayer.cancelPrimaryAction()
-    wait()
-    eventPlayer.forceButtonPress(Button.ABILITY_2)
-    eventPlayer.cancelPrimaryAction()
-    wait()
-    eventPlayer.forceButtonPress(Button.ABILITY_2)
-    eventPlayer.cancelPrimaryAction()
-    eventPlayer.setAbilityCooldown(Button.ABILITY_2, 6)
+        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+        wait(0.5)
+        eventPlayer.forceButtonPress(Button.ABILITY_2)
+        wait(0.5)
+        eventPlayer.cancelPrimaryAction()
+        wait(0.5)
+        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 0)
+        wait(0.5)
+        eventPlayer.forceButtonPress(Button.ABILITY_2)
+        wait(0.5)
+        eventPlayer.cancelPrimaryAction()
+        wait(0.5)
+        eventPlayer.setAbilityCooldown(Button.ABILITY_2, 6)
+        wait(6)

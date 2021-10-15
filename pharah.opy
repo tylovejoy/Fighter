@@ -1,6 +1,6 @@
 #!mainFile "fighter.opy"
 
-#!define IMPULSE_AMOUNT 8
+#!define IMPULSE_AMOUNT 3
 
 rule "Ultimate Ability - Shortened":
     @Event eachPlayer
@@ -9,7 +9,7 @@ rule "Ultimate Ability - Shortened":
 
     eventPlayer.setUltCharge(100)
     eventPlayer.forceButtonPress(Button.ULTIMATE)
-    wait(1.5)
+    wait(1)
     eventPlayer.cancelPrimaryAction()
     wait(10)
 
@@ -39,6 +39,7 @@ rule "Crouch Descend":
     @Hero pharah
     @Condition eventPlayer.isUsingUltimate() == false
     @Condition eventPlayer.isInAir()
+    @Condition eventPlayer.isHoldingButton(Button.CROUCH)
 
     do:
         eventPlayer.applyImpulse(Vector.DOWN, IMPULSE_AMOUNT, Relativity.TO_PLAYER, Impulse.INCORPORATE_CONTRARY_MOTION)

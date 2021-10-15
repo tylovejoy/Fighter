@@ -36,10 +36,11 @@ rule "Grapple/RKO Ability":
 
     # Damage more the higher up you are
     damage(eventPlayer.grappleTarget, eventPlayer, GRAPPLE_DAMAGE * distance(eventPlayer.getPosition(), nearestWalkablePosition(eventPlayer.getPosition())))
+    eventPlayer.grappleTarget.detach()
     wait(1)
     
     # Reset grapple target
     eventPlayer.grappleTarget.clearStatusEffect(Status.STUNNED)
-    eventPlayer.grappleTarget.detach()
+    
     eventPlayer.grappleTarget = null
     wait(5)
