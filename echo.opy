@@ -3,7 +3,7 @@
 #!define BEAM_DAMAGE 100
 #!define beamDamage() damage([player for player in getLivingPlayers(getOppositeTeam(eventPlayer.getTeam())) if dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) > 0 and dotProduct(vectorTowards(eventPlayer, player), eventPlayer.getFacingDirection()) <= 10 and magnitude(crossProduct( vectorTowards( eventPlayer, player), eventPlayer.getFacingDirection())) <= 1 and isInLoS(eventPlayer, player, BarrierLos.PASS_THROUGH_BARRIERS)], eventPlayer, 75)
 
-
+playervar beamAllowed
 playervar abilityFX
 
 rule "--- [Echo] ---":
@@ -13,8 +13,12 @@ rule "--- [Echo] ---":
 rule "Large Beam Ability":
     @Event eachPlayer
     @Hero echo
+
     @Condition eventPlayer.isHoldingButton(Button.ULTIMATE)
 
+    if eventPlayer.beamAllowed == false:
+        return
+    eventPlayer.beamAllowed = false
     createBeam(
         getAllPlayers(), 
         Beam.MOIRA_COALESCENCE, 
@@ -43,7 +47,7 @@ rule "Large Beam Ability":
     destroyEffect(eventPlayer.abilityFX[0])
     destroyEffect(eventPlayer.abilityFX[1])
     wait(10)
-
+    eventPlayer.beamAllowed = true
         
 
     
