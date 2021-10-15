@@ -42,5 +42,8 @@
     },
     "lobby": {
         "ffaSlots": 8,   
+    },
+    "workshop":{
+        "Camera position [X axis]": 1.270
     }
 }
