@@ -10,10 +10,12 @@
 #!extension kineticExplosionEffects
 #!extension beamSounds
 
+#!define INIT_TELE_VECT vect(0, 1000, 0)
 
 settings "settings.opy.json"
 
 globalvar TimeRemaining 
+
 
 rule "--- Gamemode ---":
     @Delimiter
@@ -37,3 +39,14 @@ rule "Spawn Dummy Bots TESTING":
         goto RULE_START
             
 
+rule "Spawn":
+    @Event eachPlayer
+    @Condition eventPlayer.hasSpawned()
+    eventPlayer.setGravity(0)
+    eventPlayer.teleport(INIT_TELE_VECT + vect(random.randint(0, 20), 0, random.randint(0, 20))) 
+
+rule "General Match Init":
+    # Create sparkles (stars)
+    createEffect(getAllPlayers(), Effect.SPARKLES, Color.TURQUOISE, INIT_TELE_VECT, 100000, EffectReeval.NONE)
+
+    

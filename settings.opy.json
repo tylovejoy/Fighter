@@ -10,7 +10,8 @@
         "general": {
             "enableEndless": true,
             "respawnTime%": 50,
-            "enableEnemyHealthBars": true
+            "enableEnemyHealthBars": true,
+            "enabledMaps": ["workshopExpanseNight"]
         }
     },
     "heroes": {
