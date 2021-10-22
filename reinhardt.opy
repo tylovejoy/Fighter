@@ -1,15 +1,16 @@
 #!mainFile "fighter.opy"
 
-#!define IMPULSE_AMOUNT 7
+playervar facingDirection
 
 rule "Spinning hammer":
     @Event eachPlayer
     @Hero reinhardt
     @Condition eventPlayer.isHoldingButton(Button.ABILITY_1)
 
+    eventPlayer.facingDirection = evalOnce(eventPlayer.getFacingDirection())
     eventPlayer.startCamera(eventPlayer.getEyePosition(), eventPlayer.getEyePosition(), 0)
     eventPlayer.startCamera(updateEveryTick(raycast(eventPlayer.getEyePosition(), eventPlayer.getEyePosition() + Vector.UP * 5 + evalOnce(normalize(eventPlayer.getFacingDirection() * vect(1, 0, 1)) * -5), getAllPlayers(), eventPlayer, true).getHitPosition()), updateEveryTick(eventPlayer.getEyePosition()), 0)
-    eventPlayer.startTransformingThrottle(1, 1, evalOnce(eventPlayer.getFacingDirection()))
+    eventPlayer.startTransformingThrottle(1, 1, eventPlayer.facingDirection)
     eventPlayer.setMoveSpeed(0)
     eventPlayer.startFacing(Vector.LEFT, 10000, Relativity.TO_PLAYER, FacingReeval.DIRECTION_AND_TURN_RATE)
     

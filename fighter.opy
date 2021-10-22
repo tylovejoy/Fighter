@@ -10,6 +10,7 @@
 #!extension kineticExplosionEffects
 #!extension beamSounds
 
+
 settings "settings.opy.json"
 
 globalvar TimeRemaining 
@@ -30,7 +31,7 @@ rule "Spawn Dummy Bots TESTING":
     @Event eachPlayer
     @Condition eventPlayer.isCommunicatingSpray() == true
     
-    createDummy(Hero.WIDOWMAKER, Team.ALL, -1, eventPlayer.getPosition(), vect(0, 0, 0))
+    createDummy(Hero.REINHARDT, Team.ALL, -1, eventPlayer.getPosition(), vect(0, 0, 0))
     wait(0.25)
     if RULE_CONDITION:
         goto RULE_START
