@@ -43,7 +43,7 @@ rule "Spawn":
     @Event eachPlayer
     @Condition eventPlayer.hasSpawned()
     eventPlayer.setGravity(0)
-    eventPlayer.teleport(INIT_TELE_VECT + vect(random.randint(0, 20), 0, random.randint(0, 20))) 
+    eventPlayer.teleport(INIT_TELE_VECT + vect(random.randint(-20, 20), 0, random.randint(20, 20))) 
 
 rule "General Match Init":
     # Create sparkles (stars)
